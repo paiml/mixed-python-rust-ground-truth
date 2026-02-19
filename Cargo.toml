@@ -1,0 +1,10 @@
+[package]
+name = "rust-native"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+
+[dev-dependencies]
+proptest = "1"
