@@ -3,8 +3,30 @@ name = "rust-native"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
+rust-version = "1.75"
+exclude = ["tests/", "*.py", ".github/", ".pmat/"]
+
+[features]
+default = []
 
 [dependencies]
 
 [dev-dependencies]
 proptest = "1"
+
+[lints.rust]
+unsafe_code = "deny"
+missing_docs = "warn"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
+nursery = "warn"
+unwrap_used = "warn"
+expect_used = "warn"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+opt-level = 3

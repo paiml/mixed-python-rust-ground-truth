@@ -1,0 +1,19 @@
+# Clippy configuration for rust-native
+# See: https://doc.rust-lang.org/clippy/configuration.html
+
+# Disallow methods that can panic in production code
+disallowed-methods = [
+    { path = "std::option::Option::unwrap", reason = "Use `expect()` or proper error handling" },
+    { path = "std::result::Result::unwrap", reason = "Use `expect()` or proper error handling" },
+    { path = "std::option::Option::expect", reason = "Use pattern matching or `?` operator" },
+    { path = "std::result::Result::expect", reason = "Use pattern matching or `?` operator" },
+]
+
+# Cognitive complexity threshold
+cognitive-complexity-threshold = 25
+
+# Maximum lines in a function body
+too-many-lines-threshold = 100
+
+# MSRV for compatibility checks
+msrv = "1.75"

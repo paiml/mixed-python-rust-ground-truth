@@ -1,0 +1,16 @@
+# Cargo build configuration
+
+[build]
+# Use all available CPUs for compilation
+jobs = 0
+
+[target.'cfg(target_os = "linux")']
+rustflags = ["-C", "target-cpu=native"]
+
+[profile.dev]
+# Faster debug builds
+opt-level = 0
+debug = true
+
+[profile.test]
+opt-level = 1
